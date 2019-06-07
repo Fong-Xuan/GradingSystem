@@ -1,5 +1,3 @@
-package GradingSystem_test;
-
 import static org.junit.Assert.*;
 
 import org.junit.After;

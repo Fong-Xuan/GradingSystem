@@ -1,5 +1,3 @@
-package GradingSystem;
-
 import java.awt.datatransfer.StringSelection;
 import java.util.Scanner;
 
@@ -22,7 +20,7 @@ public class GradingSystem {
     * Time estimate : O (n)
     * Example: UI物件.checkID(962001044) ; 傳回結果為 true
     ----------------------------------------------------------------------------------------------------------*/
-    public GradingSystem (){
+    public GradingSystem() {
         grades = new Grades();
     }
 
@@ -42,9 +40,9 @@ public class GradingSystem {
     * Time estimate : O (n)
     * Example: UI物件.checkID(962001044) ; 傳回結果為 true
     ----------------------------------------------------------------------------------------------------------*/
-    boolean	containsID(int id){
+    boolean containsID(int id) {
         int target = 0;
-        if((target = grades.containsID(id)) != -1)
+        if ((target = grades.containsID(id)) != -1)
             return true;
         return false;
     }
@@ -64,17 +62,17 @@ public class GradingSystem {
     * Time estimate :
     * Example:
     ----------------------------------------------------------------------------------------------------------*/
-    void showGrade(int id){
+    void showGrade(int id) {
         int grades_tmp[] = grades.getGrade(id);
         System.out.println(
                 grades.getName(id) +
-                        "成績："+
-                        "\n      lab1:       "+grades_tmp[0]+
-                        "\n      lab2:       "+grades_tmp[1]+
-                        "\n      lab3:       "+grades_tmp[2]+
-                        "\n      mid-term:   "+grades_tmp[3]+
-                        "\n      final exam: "+grades_tmp[4]+
-                        "\n      total grade:"+grades_tmp[5]);
+                        "成績：" +
+                        "\n      lab1:       " + grades_tmp[0] +
+                        "\n      lab2:       " + grades_tmp[1] +
+                        "\n      lab3:       " + grades_tmp[2] +
+                        "\n      mid-term:   " + grades_tmp[3] +
+                        "\n      final exam: " + grades_tmp[4] +
+                        "\n      total grade:" + grades_tmp[5]);
     }
 
     /* method  showRank  ----------------------------------------------------------------------------------
@@ -92,7 +90,7 @@ public class GradingSystem {
     * Time estimate :
     * Example:
     ----------------------------------------------------------------------------------------------------------*/
-    void showRank(int id){
+    void showRank(int id) {
         System.out.println(grades.getRank(id));
     }
 
@@ -110,15 +108,15 @@ public class GradingSystem {
     * Time estimate :
     * Example:
     ----------------------------------------------------------------------------------------------------------*/
-    void showAverage(){
+    void showAverage() {
         int averageGrade[] = grades.getAverage();
         System.out.println(
                 "各項平均："
-                        +"\n      lab1:       " + averageGrade[0]
-                        +"\n      lab2:       " + averageGrade[1]
-                        +"\n      lab3:       " + averageGrade[1]
-                        +"\n      mid-term:   " + averageGrade[1]
-                        +"\n      final exam: " + averageGrade[1]);
+                        + "\n      lab1:       " + averageGrade[0]
+                        + "\n      lab2:       " + averageGrade[1]
+                        + "\n      lab3:       " + averageGrade[1]
+                        + "\n      mid-term:   " + averageGrade[1]
+                        + "\n      final exam: " + averageGrade[1]);
     }
 
 
@@ -140,15 +138,15 @@ public class GradingSystem {
     * Time estimate :
     * Example:
     ----------------------------------------------------------------------------------------------------------*/
-    public void updateWeights (){
+    public void updateWeights() {
         showOldWeights(grades.getWeight());
         int[] new_weights = inputNewWeights();
         System.out.println("輸入新配分:");
-        System.out.println("      lab1:       "+new_weights[0]);
-        System.out.println("      lab2:       "+new_weights[1]);
-        System.out.println("      lab3:       "+new_weights[2]);
-        System.out.println("      mid-term:   "+new_weights[3]);
-        System.out.println("      final exam: "+new_weights[4]);
+        System.out.println("      lab1:       " + new_weights[0]);
+        System.out.println("      lab2:       " + new_weights[1]);
+        System.out.println("      lab3:       " + new_weights[2]);
+        System.out.println("      mid-term:   " + new_weights[3]);
+        System.out.println("      final exam: " + new_weights[4]);
         System.out.println("以上正確嗎? Y (Yes) 或 N (No)");
         checkToSetWeight(new_weights);
 
@@ -171,10 +169,10 @@ public class GradingSystem {
     * Time estimate :
     * Example:
     ----------------------------------------------------------------------------------------------------------*/
-    private void checkToSetWeight(int[] new_weights){
+    private void checkToSetWeight(int[] new_weights) {
         Scanner scanner = new Scanner(System.in);
         String reply = scanner.next();
-        if(reply.equals("Y") || reply.equals("y"))
+        if (reply.equals("Y") || reply.equals("y"))
             grades.setWeight(new_weights);
 
     }
@@ -194,9 +192,9 @@ public class GradingSystem {
     * Time estimate :
     * Example:
     ----------------------------------------------------------------------------------------------------------*/
-    private int[] inputNewWeights(){
+    private int[] inputNewWeights() {
         Scanner scanner = new Scanner(System.in);
-        int[] new_weight = {0,0,0,0,0};
+        int[] new_weight = {0, 0, 0, 0, 0};
         System.out.println("輸入新配分:");
         System.out.print("      lab1:       ");
         new_weight[0] = scanner.nextInt();
@@ -210,6 +208,7 @@ public class GradingSystem {
         new_weight[4] = scanner.nextInt();
         return new_weight;
     }
+
     /* method  showOldWeights  ----------------------------------------------------------------------------------
     * 	print the old weights set
     *
@@ -225,15 +224,16 @@ public class GradingSystem {
     * Time estimate :
     * Example:
     ----------------------------------------------------------------------------------------------------------*/
-    private void showOldWeights(int[] old_weights){
+    private void showOldWeights(int[] old_weights) {
         System.out.println("舊配分:");
-        System.out.println("      lab1:       "+old_weights[0]);
-        System.out.println("      lab2:       "+old_weights[1]);
-        System.out.println("      lab3:       "+old_weights[2]);
-        System.out.println("      mid-term:   "+old_weights[3]);
-        System.out.println("      final exam: "+old_weights[4]);
+        System.out.println("      lab1:       " + old_weights[0]);
+        System.out.println("      lab2:       " + old_weights[1]);
+        System.out.println("      lab3:       " + old_weights[2]);
+        System.out.println("      mid-term:   " + old_weights[3]);
+        System.out.println("      final exam: " + old_weights[4]);
 
     }
+
     /* method  getGrades ----------------------------------------------------------------------------------
     * 	give the access to  grades
     *
@@ -249,7 +249,7 @@ public class GradingSystem {
     * Time estimate :
     * Example:
     ----------------------------------------------------------------------------------------------------------*/
-    public Grades getGrades(){
+    public Grades getGrades() {
         return grades;
     }
 

@@ -1,5 +1,3 @@
-package GradingSystem;
-
 public class aGrade {
 
     public int Id;
